@@ -17,6 +17,7 @@ This repository provides a formatter setup script and configuration files for Vu
 - `.eslintrc.json`: Configuration file for ESLint.
 - `.prettierrc.json`: Configuration file for Prettier.
 - `.stylelintrc.json`: Configuration file for Stylelint.
+- `shims.d.ts`: File to resolve type errors in `main.ts`.
 
 ## Usage
 
