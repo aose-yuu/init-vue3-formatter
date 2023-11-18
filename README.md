@@ -24,6 +24,9 @@ This repository provides a formatter setup script and configuration files for Vu
 
    ```bash
    cd ~
+   ```
+
+   ```bash
    git clone git@github.com:aose-yuu/vue3-formatter-initializer.git
    ```
 
