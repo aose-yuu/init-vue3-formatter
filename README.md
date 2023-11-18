@@ -24,7 +24,7 @@ This repository provides a formatter setup script and configuration files for Vu
 
    ```bash
    cd ~
-   git clone <repository URL>
+   git clone git@github.com:aose-yuu/vue3-formatter-initializer.git
    ```
 
 2. Add the script's path to your .zshrc as an environment variable:
@@ -41,4 +41,4 @@ This repository provides a formatter setup script and configuration files for Vu
    init-vue3-formatter /path/to/vue3-project
    ```
 
-Happy coding and enjoy the streamlined formatter setup!
+**Happy coding and enjoy the streamlined formatter setup!**
