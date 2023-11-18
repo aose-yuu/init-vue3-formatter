@@ -66,6 +66,13 @@ function init_formatter {
       cp "$script_dir/.stylelintrc.json" .
     fi
 
+    if [ -f src/shims.d.ts ]; then
+      echo ".shims.d.ts already exists. Skipping creation."
+      exists=1
+    else
+      cp "$script_dir/src/shims.d.ts" .
+    fi
+
     if [ $exists -eq 1 ]; then
       echo "Some configuration files already exists."
     else
