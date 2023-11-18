@@ -1,0 +1,39 @@
+#!/bin/zsh
+
+# init_formatter function
+# Usage: init_formatter [target_directory]
+# Description: Copies formatter configuration files to the specified project directory.
+# It only runs if package.json exists in the target directory.
+function init_formatter {
+  # Default to current directory if no argument is given
+  local target_dir=${1:-.}
+
+  # Check if the given target directory exists
+  if [ ! -d "$target_dir" ]; then
+    echo "Target directory $target_dir not found. Exiting."
+    return 1
+  fi
+
+  # Get the directory where the script is located
+  local script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
+
+  echo "Copying formatter configuration files to $target_dir..."
+
+  # Change to the target directory
+  cd "$target_dir" || { echo "Failed to change directory to $target_dir. Exiting."; return 1; }
+
+  # Check if package.json exists
+  if [ -f package.json ]; then
+    # Copy .eslintrc.json, .prettierrc.json, and .stylelintrc.json from script directory to target directory
+    cp "$script_dir/.eslintrc.json" "$target_dir" 2>/dev/null || echo "Warning: .eslintrc.json not found in script directory."
+    cp "$script_dir/.prettierrc.json" "$target_dir" 2>/dev/null || echo "Warning: .prettierrc.json not found in script directory."
+    cp "$script_dir/.stylelintrc.json" "$target_dir" 2>/dev/null || echo "Warning: .stylelintrc.json not found in script directory."
+
+    echo "Configuration files copied successfully."
+  else
+    echo "package.json not found in $target_dir. Exiting."
+    return 1
+  fi
+
+  echo "Formatter initialization complete."
+}
