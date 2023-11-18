@@ -14,9 +14,6 @@ function init_formatter {
     return 1
   fi
 
-  # Get the directory where the script is located
-  local script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
-
   echo "Copying formatter configuration files to $target_dir..."
 
   # Change to the target directory
@@ -25,9 +22,9 @@ function init_formatter {
   # Check if package.json exists
   if [ -f package.json ]; then
     # Copy .eslintrc.json, .prettierrc.json, and .stylelintrc.json from script directory to target directory
-    cp "$script_dir/.eslintrc.json" "$target_dir" 2>/dev/null || echo "Warning: .eslintrc.json not found in script directory."
-    cp "$script_dir/.prettierrc.json" "$target_dir" 2>/dev/null || echo "Warning: .prettierrc.json not found in script directory."
-    cp "$script_dir/.stylelintrc.json" "$target_dir" 2>/dev/null || echo "Warning: .stylelintrc.json not found in script directory."
+    cp "./.eslintrc.json" "$target_dir" 2>/dev/null || echo "Warning: .eslintrc.json not found in script directory."
+    cp "./.prettierrc.json" "$target_dir" 2>/dev/null || echo "Warning: .prettierrc.json not found in script directory."
+    cp "./.stylelintrc.json" "$target_dir" 2>/dev/null || echo "Warning: .stylelintrc.json not found in script directory."
 
     echo "Configuration files copied successfully."
   else
