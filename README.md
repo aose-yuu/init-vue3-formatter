@@ -1,11 +1,15 @@
 # Vue 3 Formatter Initializer
 
-![Vue 3 Formatter Logo](./images/vue3_formatter_logo_resized.png)
+<p align="center">
+  <img src="./images/vue3_formatter_logo_resized.png" alt="Vue 3 Formatter Logo">
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/build-passing-brightgreen" alt="Build Status">
+  <img src="https://img.shields.io/badge/license-MIT-blue" alt="License">
+</p>
 
 This repository provides a formatter setup script and configuration files for Vue 3 projects. It includes settings for ESLint, Prettier, and Stylelint.
-
-![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
-![License](https://img.shields.io/badge/license-MIT-blue)
 
 ## Contents
 
