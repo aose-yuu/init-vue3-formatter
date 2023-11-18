@@ -13,7 +13,7 @@ This repository provides a formatter setup script and configuration files for Vu
 
 ## Contents
 
-- `init-vue3-formatter`: A script for initializing Vue 3 projects.
+- `vue3-formatter-initializer`: Script to initialize formatter in Vue 3 project.
 - `.eslintrc.json`: Configuration file for ESLint.
 - `.prettierrc.json`: Configuration file for Prettier.
 - `.stylelintrc.json`: Configuration file for Stylelint.
