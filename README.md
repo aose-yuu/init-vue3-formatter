@@ -27,18 +27,18 @@ This repository provides a formatter setup script and configuration files for Vu
    git clone <repository URL>
    ```
 
-2. Execute the script by specifying the directory path of your project.
-
-   ```bash
-   init-vue3-formatter /path/to/vue3-project
-   ```
-
-3. Add the script's path to your .zshrc as an environment variable:
+2. Add the script's path to your .zshrc as an environment variable:
 
    ```bash
    export PATH=$PATH:~/vue3-formatter-initializer
    ```
 
 Remember to reload your .zshrc or restart your terminal session for the changes to take effect.
+
+3. Execute the script by specifying the directory path of your project.
+
+   ```bash
+   init-vue3-formatter /path/to/vue3-project
+   ```
 
 Happy coding and enjoy the streamlined formatter setup!
