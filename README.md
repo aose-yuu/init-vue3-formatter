@@ -33,7 +33,7 @@ This repository provides a formatter setup script and configuration files for Vu
    export PATH=$PATH:~/vue3-formatter-initializer
    ```
 
-Remember to reload your .zshrc or restart your terminal session for the changes to take effect.
+   Remember to reload your .zshrc or restart your terminal session for the changes to take effect.
 
 3. Execute the script by specifying the directory path of your project.
 
