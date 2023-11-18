@@ -1,5 +1,20 @@
 #!/bin/zsh
 
+function install_packages {
+  echo "Installing npm packages..."
+  npm i -D \
+    eslint \
+    eslint-plugin-vue \
+    @typescript-eslint/eslint-plugin \
+    @typescript-eslint/parser \
+    prettier \
+    @vue/eslint-config-prettier \
+    stylelint \
+    stylelint-config-recess-order \
+    stylelint-config-recommended \
+    stylelint-config-recommended-scss || { return 1; }
+}
+
 # init_formatter function
 # Usage: init_formatter [target_directory]
 # Description: Copies formatter configuration files to the specified project directory.
@@ -15,18 +30,47 @@ function init_formatter {
   fi
 
   echo "Copying formatter configuration files to $target_dir..."
-
-  # Change to the target directory
-  cd "$target_dir" || { echo "Failed to change directory to $target_dir. Exiting."; return 1; }
-
+  
+  local script_dir="$HOME/vue3-formatter-initializer/"
+  local package_json="$target_dir/package.json"
+  
   # Check if package.json exists
-  if [ -f package.json ]; then
+  if [ -f $package_json ]; then
+    # Change to the target directory
+    cd "$target_dir"
+    install_packages || { echo "npm install failed."; exit 1; }
+    
     # Copy .eslintrc.json, .prettierrc.json, and .stylelintrc.json from script directory to target directory
-    cp "~/vue3-formatter-initializer/.eslintrc.json" "$target_dir" 2>/dev/null || echo "Warning: .eslintrc.json not found in script directory."
-    cp "~/vue3-formatter-initializer/.prettierrc.json" "$target_dir" 2>/dev/null || echo "Warning: .prettierrc.json not found in script directory."
-    cp "~/vue3-formatter-initializer/.stylelintrc.json" "$target_dir" 2>/dev/null || echo "Warning: .stylelintrc.json not found in script directory."
+    local exists=0
+    # Check if .eslintrc.json already exists
+    if [ -f .eslintrc.json ]; then
+      echo ".eslintrc.json already exists. Skipping creation."
+      exists=1
+    else
+      cp "$script_dir/.eslintrc.json" .
+    fi
 
-    echo "Configuration files copied successfully."
+    # Check if .prettierrc.json already exists
+    if [ -f .prettierrc.json ]; then
+      echo ".prettierrc.json already exists. Skipping creation."
+      exists=1
+    else
+      cp "$script_dir/.prettierrc.json" .
+    fi
+
+    # Check if .stylelintrc.json already exists
+    if [ -f .stylelintrc.json ]; then
+      echo ".stylelintrc.json already exists. Skipping creation."
+      exists=1
+    else
+      cp "$script_dir/.stylelintrc.json" .
+    fi
+
+    if [ $exists -eq 1 ]; then
+      echo "Some configuration files already exists."
+    else
+      echo "Configuration files created successfully."
+    fi
   else
     echo "package.json not found in $target_dir. Exiting."
     return 1
@@ -36,3 +80,4 @@ function init_formatter {
 }
 
 init_formatter $1
+
