@@ -95,6 +95,3 @@ function init_formatter {
 }
 
 init_formatter $1
-
-
-
