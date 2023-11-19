@@ -28,8 +28,6 @@ function init_formatter {
     echo "Target directory $target_dir not found. Exiting."
     return 1
   fi
-
-  echo "Copying formatter configuration files to $target_dir..."
   
   local script_dir="$HOME/vue3-formatter-initializer"
   local package_json="$target_dir/package.json"
@@ -41,7 +39,9 @@ function init_formatter {
     install_packages || { echo "npm install failed."; exit 1; }
     
     # Copy .eslintrc.json, .prettierrc.json, and .stylelintrc.json from script directory to target directory
+    echo "Copying formatter configuration files to $target_dir..."
     local exists=0
+    
     # Check if .eslintrc.json already exists
     if [ -f .eslintrc.json ]; then
       echo ".eslintrc.json already exists. Skipping creation."
@@ -70,7 +70,7 @@ function init_formatter {
       echo ".shims.d.ts already exists. Skipping creation."
       exists=1
     else
-      cp "$script_dir/src/shims.d.ts" .
+      cp "$script_dir/shims.d.ts" ./src/
     fi
 
     if [ $exists -eq 1 ]; then
