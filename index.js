@@ -19,15 +19,12 @@ function installPackages() {
 
 function copyConfigFiles(targetDir) {
   echoBoldWhite('Step 2: Copying configuration files...');
-
   const filesExist = (() => {
     for (const file of CONFIG_FILES) {
-      const targetFilePath = (() => {
-        if (file === 'shims.d.ts') {
-          return path.join(scriptDir, targetDir, 'src', file);
-        }
-        return path.join(scriptDir, targetDir, file);
-      })();
+      const targetFilePath =
+        file === 'shims.d.ts'
+          ? path.join(targetDir, 'src', file)
+          : path.join(targetDir, file);
 
       if (!fs.existsSync(targetFilePath)) {
         fs.copyFileSync(path.join(scriptDir, file), targetFilePath);
