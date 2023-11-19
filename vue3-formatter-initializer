@@ -31,7 +31,7 @@ function init_formatter {
 
   echo "Copying formatter configuration files to $target_dir..."
   
-  local script_dir="$HOME/vue3-formatter-initializer/"
+  local script_dir="$HOME/vue3-formatter-initializer"
   local package_json="$target_dir/package.json"
   
   # Check if package.json exists
