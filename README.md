@@ -54,7 +54,7 @@ This will automatically set up ESLint, Prettier, and Stylelint configurations fo
 2. Add the script's path to your .zshrc as an environment variable:
 
    ```bash
-   export PATH=$PATH:~/vue3-formatter-initializer
+   export PATH="$HOME/vue3-formatter-initializer:$PATH"
    ```
 
    Remember to reload your .zshrc or restart your terminal session for the changes to take effect.
