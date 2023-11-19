@@ -1,6 +1,6 @@
 {
   "name": "vue3-formatter-initializer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "preferGlobal": true,
   "description": "A CLI tool for initializing and configuring ESLint, Prettier, and Stylelint in Vue 3 projects.",
   "main": "index.js",
