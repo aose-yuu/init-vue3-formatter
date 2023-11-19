@@ -19,7 +19,7 @@ Instead of cloning and setting up manually, you can now install this tool direct
 npm install -g vue3-formatter-initializer
 ```
 
-This will install vue3-formatter-initializer globally, so it can be run from anywhere in your system.
+We recommend installing this package globally so that it can be used across your system:
 
 ## Usage as npm Package
 
