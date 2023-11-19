@@ -1,7 +1,12 @@
 #!/bin/zsh
 
+function echo_bold_white {
+  echo -e "\n\033[1m\033[97m$1\033[0m\n"
+}
+
 function install_packages {
-  echo "Installing npm packages..."
+  echo_bold_white "Step 1: Installing npm packages..."
+  
   npm i -D \
     eslint \
     eslint-plugin-vue \
@@ -13,6 +18,8 @@ function install_packages {
     stylelint-config-recess-order \
     stylelint-config-recommended \
     stylelint-config-recommended-scss || { return 1; }
+  
+  echo -e "npm packages installed.\n"
 }
 
 # init_formatter function
@@ -39,7 +46,8 @@ function init_formatter {
     install_packages || { echo "npm install failed."; exit 1; }
     
     # Copy .eslintrc.json, .prettierrc.json, and .stylelintrc.json from script directory to target directory
-    echo "Copying formatter configuration files to $target_dir..."
+    echo_bold_white "Step 2: Copying configuration files..."
+    
     local exists=0
     
     # Check if .eslintrc.json already exists
@@ -87,4 +95,6 @@ function init_formatter {
 }
 
 init_formatter $1
+
+
 
