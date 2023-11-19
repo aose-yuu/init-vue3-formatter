@@ -1,0 +1,30 @@
+{
+  "name": "vue3-formatter-initializer",
+  "version": "1.0.0",
+  "description": "<p align=\"center\">   <img src=\"./images/vue3_formatter_logo_resized.png\" alt=\"Vue 3 Formatter Logo\"> </p>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "vue3-formatter-initializer": "./index.js"
+  },
+  "keywords": [
+    "vue",
+    "vue3",
+    "formatter",
+    "eslint",
+    "prettier",
+    "stylelint",
+    "code-style"
+  ],
+  "author": "aose-yuu",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aose-yuu/vue3-formatter-initializer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aose-yuu/vue3-formatter-initializer/issues"
+  }
+}
