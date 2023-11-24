@@ -1,6 +1,7 @@
 const PACKAGES_TO_INSTALL = [
   'eslint',
   'eslint-plugin-vue',
+  'eslint-plugin-import',
   '@typescript-eslint/eslint-plugin',
   '@typescript-eslint/parser',
   'prettier',
